@@ -115,13 +115,7 @@ export default function Home() {
             <span className="text-gray-300">
               Join the waitlist. By{" "}
             </span>
-            <Image
-              alt="Builder.io logo"
-              className="inline-block ml-1 -mt-1"
-              width={100}
-              height={20}
-              src={assets.builder}
-            />, 
+            <a href="https://www.linkedin.com/in/subhadeep3902/" rel="noreferrer">Subhadeep</a>, 
             {" "}
             <Image
               alt="Figma logo"
