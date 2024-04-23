@@ -4,7 +4,7 @@ import './globals.css'
 
 
 export const metadata: Metadata = {
-  title: '2024X',
+  title: '2025X',
   description: 'Frameworks of the future wishing you a happy new year',
 }
 
