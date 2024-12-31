@@ -9,6 +9,7 @@ import { Poppins } from "next/font/google";
 import { CountdownTimer } from "@/components/countdown-timer";
 import { Cursor } from "@/components/cursor";
 import { FrameworkRotation2 } from "@/components/framework-rotation2";
+import { launchNewYearConfetti } from "@/utils/confetti";
 
 const poppins = Poppins({
   weight: "700",
@@ -34,6 +35,11 @@ export default function Home() {
   useEffect(() => {
     setShowBackground(true);
   }, []);
+
+  const handleCountdownComplete = () => {
+    launchNewYearConfetti();
+    console.log("Happy New Year!"); 
+  };
 
   return (
     <main>
@@ -125,30 +131,11 @@ export default function Home() {
               src={assets.figmatwo}
             /> and <FrameworkRotation2 currentFramework={currentFramework} />
           </p>
-          {/* Claim ticket button */}
-          <div className="mb-6">
-            <button
-              ref={buttonRef}
-              className={cn(
-                "text-black px-6 py-3 rounded-md text-base font-bold transition-colors duration-200",
-                {
-                  "bg-purple-300": currentFramework === "qwik",
-                  "bg-sky-300": currentFramework === "safari",
-                  "bg-yellow-300": currentFramework === "chrome",
-                  "bg-teal-300": currentFramework === "tailwind",
-                  "bg-blue-300": currentFramework === "react",
-                  "bg-green-300": currentFramework === "vue",
-                  "bg-orange-400": currentFramework === "svelte",
-                  "bg-red-300": currentFramework === "mobile",
-                  "bg-neutral-300": currentFramework === "desktop",
-                }
-              )}
-            >
-              Waiting...
-            </button>
-          </div>
           {/* Countdown timer */}
-          <CountdownTimer currentFramework={currentFramework} />
+          <CountdownTimer currentFramework={currentFramework}
+            buttonRef={buttonRef}
+            onComplete={handleCountdownComplete}
+          />
         </div>
       </div>
       <Cursor buttonRef={buttonRef} />
