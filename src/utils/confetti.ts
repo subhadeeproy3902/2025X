@@ -9,6 +9,7 @@ export function launchNewYearConfetti() {
     return Math.random() * (max - min) + min;
   }
 
+  // @ts-ignore
   const interval = setInterval(function() {
     const timeLeft = animationEnd - Date.now();
 
